@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3"
+  }
+}
