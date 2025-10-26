@@ -1,12 +1,20 @@
 import React from "react";
-import "./index.scss"; // import your global styles
+import "./index.scss"; // global styles
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/login/login";
+import Dashboard from "./pages/dashboard/dashboard";
+import { AuthProvider } from "./context/auth-context";
 
-
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div>
-      <h1>React Dashboard is working 🚀</h1>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 

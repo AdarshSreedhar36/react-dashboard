@@ -1,0 +1,141 @@
+// Variables
+$navbar-height: 70px;
+$navbar-bg: #ffffff;
+$navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+$text-primary: #2c3e50;
+$brand-primary: #4a90e2;
+$transition-speed: 0.3s;
+
+.navbar {
+  height: $navbar-height;
+  background-color: $navbar-bg;
+  box-shadow: $navbar-shadow;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 15rem;
+  right: 0;
+  z-index: 1000;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Smooth transition for any hover effects
+  transition: all $transition-speed ease;
+
+  // Welcome text styling
+  h2 {
+    color: $text-primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 40%;
+      height: 3px;
+      background: linear-gradient(to right, $brand-primary, lighten($brand-primary, 20%));
+      border-radius: 2px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  // Right section containing user dropdown
+  .user-dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    // Additional navbar items can be added here
+    .navbar-icon {
+      width: 24px;
+      height: 24px;
+      color: $text-primary;
+      cursor: pointer;
+      transition: color $transition-speed ease;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 576px) {
+    padding: 0 1rem;
+
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Glass effect variation (optional - uncomment to use)
+  /*
+  &.glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  */
+
+  // Dark mode support (optional - uncomment to use)
+  /*
+  @media (prefers-color-scheme: dark) {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .navbar-icon {
+      color: #ffffff;
+    }
+  }
+  */
+}
+
+// Animation for navbar on scroll (optional - uncomment to use)
+/*
+.navbar-scrolled {
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+*/
+
+// Additional utility classes
+.navbar-elevated {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+// Animations
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Apply animation when navbar enters the DOM
+.navbar-enter {
+  animation: slideDown 0.3s ease forwards;
+}

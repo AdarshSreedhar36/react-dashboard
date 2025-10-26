@@ -1,10 +1,14 @@
-$primary-color: #333333;
-
+$primary-color: #f4f4f4;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-color: #666666
-;
+  background-color: $primary-color;
   color: #333;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  height: 100%;
 }
 
 h1 {

@@ -1,0 +1,46 @@
+// Base Colors
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Theme Colors
+$color-primary: #4a90e2;
+$color-success: #2ecc71;
+$color-warning: #f1c40f;
+$color-danger: #e74c3c;
+
+// Gray Scale (only used ones)
+$color-gray-400: #ced4da;
+
+// UI Colors
+$color-text-primary: #2c3e50;
+$color-text-secondary: #666666;
+$color-text-light: #888888;
+$color-text-dark: #1e1e1e;
+
+// Background Colors
+$color-background-primary: $color-white;
+$color-background-dark: #1e1e1e;
+$color-background-overlay: rgba($color-black, 0.75);
+
+// Status Colors with Alpha
+$color-primary-light: rgba($color-primary, 0.1);
+$color-success-light: rgba($color-success, 0.1);
+$color-warning-light: rgba($color-warning, 0.1);
+$color-danger-light: rgba($color-danger, 0.1);
+
+// Border Colors
+$color-border-light: rgba($color-black, 0.05);
+$color-border-dark: rgba($color-white, 0.05);
+
+// Shadow Colors
+$color-shadow-light: rgba($color-black, 0.08);
+$color-shadow-medium: rgba($color-black, 0.12);
+$color-shadow-dark: rgba($color-black, 0.3);
+
+// Badge Colors
+$color-badge-archived: #95a5a6;
+
+// Other Variables
+$border-radius: 16px;
+$transition-speed: 0.3s;
+$box-shadow: 0 4px 20px $color-shadow-light;

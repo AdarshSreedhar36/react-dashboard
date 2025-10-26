@@ -1,0 +1,149 @@
+// Variables
+$primary-color: #4a90e2;
+$secondary-color: #2c3e50;
+$online-color: #2ecc71;
+$text-primary: #333333;
+$text-secondary: #666666;
+$avatar-bg: #4a90e2;
+$avatar-text: #ffffff;
+$border-radius: 12px;
+$transition-speed: 0.3s;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin avatar-shadow {
+  box-shadow: 0 4px 15px rgba($primary-color, 0.2);
+}
+
+.usersection {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: $border-radius;
+  transition: all $transition-speed ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    .userlogo {
+      transform: scale(1.05);
+      @include avatar-shadow;
+    }
+  }
+
+  .userinfo {
+    position: relative;
+    
+    .userlogo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, $avatar-bg, darken($avatar-bg, 15%));
+      color: $avatar-text;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      @include flex-center;
+      transition: all $transition-speed ease;
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        background: linear-gradient(135deg, rgba($primary-color, 0.5), transparent) border-box;
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+      }
+    }
+  }
+
+  .userdetail {
+    flex: 1;
+    min-width: 0; // Prevents flex item from overflowing
+    
+    h3 {
+      margin: 0;
+      color: $avatar-text;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    .useronline {
+      display: inline-flex;
+      align-items: center;
+      color: $online-color;
+      font-size: 0.85rem;
+      font-weight: 500;
+      
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $online-color;
+        margin-right: 0.5rem;
+        box-shadow: 0 0 0 2px rgba($online-color, 0.2);
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($online-color, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba($online-color, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($online-color, 0);
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .usersection {
+    background: rgba(0, 0, 0, 0.2);
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .userdetail {
+      h3 {
+        color: #ffffff;
+      }
+    }
+
+    .userlogo {
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}

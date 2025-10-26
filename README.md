@@ -1,12 +1,47 @@
-# Getting Started with Create React App
+# React Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive admin dashboard built with React, TypeScript, and SCSS.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 📊 Interactive data visualization with charts
+- 🔐 User authentication and authorization
+- 📱 Fully responsive design
+- 🌗 Dark mode support
+- 📈 Real-time data updates
 
-### `npm start`
+## Login Credentials
+
+```
+Username: adarsh
+Password: 12345
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Git
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/AdarshSreedhar36/react-dashboard.git
+cd react-dashboard
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -57,14 +92,42 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+src/
+├── assets/         # Static assets (images, icons)
+├── components/     # Reusable UI components
+├── context/        # React context providers
+├── custom-hooks/   # Custom React hooks
+├── pages/          # Page components
+├── shared-components/ # Shared UI components
+├── styles/         # Global styles and variables
+└── App.tsx         # Root component
+```
 
-### Deployment
+## Technical Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Frontend Framework**: React with TypeScript
+- **Styling**: SCSS Modules
+- **State Management**: React Context
+- **Charts**: Chart.js / React-Chartjs-2
+- **Authentication**: Custom auth hooks
 
-### `npm run build` fails to minify
+## Planned Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Enhanced Data Visualization
+   - Additional chart types
+   - Data export capabilities
+   - Custom chart themes
+
+2. User Experience
+   - Customizable dashboard layouts
+   - Advanced search functionality
+   - Notifications system
+
+3. Technical Improvements
+   - Performance optimizations
+   - Additional test coverage
+   - Enhanced error handling
+   - Accessibility improvements

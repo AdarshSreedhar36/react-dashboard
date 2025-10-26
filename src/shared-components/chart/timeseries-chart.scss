@@ -1,0 +1,50 @@
+// Variables
+$chart-height: 400px;
+$primary-color: #4a90e2;
+$error-color: #e74c3c;
+$border-radius: 12px;
+$box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+.timeseries-chart {
+  background: #ffffff;
+  border-radius: $border-radius;
+  padding: 1.5rem;
+  box-shadow: $box-shadow;
+  height: $chart-height;
+  position: relative;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.chart-loading,
+.chart-error {
+  height: $chart-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: $primary-color;
+  background: #ffffff;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.chart-error {
+  color: $error-color;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .timeseries-chart {
+    background: #1e1e1e;
+  }
+
+  .chart-loading,
+  .chart-error {
+    background: #1e1e1e;
+    color: #ffffff;
+  }
+}

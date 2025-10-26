@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "title": "Dashboard",
+    "icon": "dashboard",
+    "path": "/dashboard"
+  },
+  { "id": 2, "title": "Email", "icon": "email", "path": "/email" }
+]

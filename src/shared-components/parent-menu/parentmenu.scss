@@ -1,0 +1,195 @@
+// Variables
+$menu-bg: #1a1f2c;
+$menu-hover-bg: #2c3344;
+$menu-active-bg: #3a4257;
+$menu-text: #ffffff;
+$menu-text-muted: #8b96a6;
+$menu-border: #2e3544;
+$menu-width: 250px;
+$transition-speed: 0.3s;
+$primary-color: #4a90e2;
+$menu-item-height: 50px;
+
+.parentmenu {
+  width: $menu-width;
+  height: 100vh;
+  background-color: $menu-bg;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  transition: all $transition-speed ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  
+  // Scrollbar styling
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $menu-bg;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $menu-hover-bg;
+    border-radius: 3px;
+  }
+
+  .menu-section {
+    margin-top: 1rem;
+  }
+
+ 
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      padding: 0 1.5rem;
+      height: $menu-item-height;
+      display: flex;
+      align-items: center;
+      color: $menu-text;
+      cursor: pointer;
+      font-size: 0.95rem;
+      position: relative;
+      transition: all $transition-speed ease;
+      border-left: 3px solid transparent;
+      
+      // Icon spacing (if you add icons later)
+      .menu-icon {
+        margin-right: 12px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+      }
+
+      // Hover effect
+      &:hover {
+        background-color: $menu-hover-bg;
+        border-left-color: rgba($primary-color, 0.5);
+        
+        &::before {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+
+      // Active state
+      &.active {
+        background-color: $menu-active-bg;
+        border-left-color: $primary-color;
+        font-weight: 500;
+        
+        &::before {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+      }
+
+      // Hover indicator
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($primary-color, 0.05);
+        opacity: 0;
+        transform: scaleX(0.95);
+        transition: all $transition-speed ease;
+      }
+    }
+  }
+
+  // Collapsed state (optional - add .collapsed class to .dashboard when implementing)
+  &.collapsed {
+    width: 70px;
+    
+    li {
+      padding: 0;
+      justify-content: center;
+      
+      .menu-icon {
+        margin: 0;
+      }
+      
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .dashboard {
+    transform: translateX(-100%);
+    
+    &.mobile-open {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .dashboard {
+    background-color: darken($menu-bg, 3%);
+    
+    ul li {
+      &:hover {
+        background-color: lighten($menu-hover-bg, 3%);
+      }
+      
+      &.active {
+        background-color: lighten($menu-active-bg, 3%);
+      }
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes menuItemFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Apply animations to menu items
+.dashboard ul li {
+  animation: menuItemFadeIn 0.3s ease forwards;
+  animation-delay: calc(var(--item-index) * 0.05s);
+}
+
+// Optional: Add a backdrop for mobile
+.menu-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  
+  @media (max-width: 768px) {
+    &.visible {
+      display: block;
+    }
+  }
+}
